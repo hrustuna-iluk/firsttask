@@ -21,10 +21,14 @@
 
         <!--templates -->
         <script type="text/template" id="quote">
-            <span class="text-success text-uppercase"><%=title%></span>
+            <span class="text-success text-uppercase"><%=question.title%></span>
             <br/>
             <button class="right btn-success btn-lg">true</button>
             <button class="wrong btn-danger btn-lg">false</button>
+            <h4>Amount of right answers<%=rightAmount%></h4>
+            <h4>Amount of wrong answers<%=wrongAmount%></h4>
+            <h4>Total amount<%=totalAmount%></h4>
+
         </script>
         <script type="text/javascript" src="js/jQuery.js"></script>
         <script type="text/javascript" src="js/underscore.js"></script>
@@ -32,7 +36,7 @@
         <script type="text/javascript" src="js/SentenceModel.js"></script>
         <script type="text/javascript" src="js/SentenceModelCollection.js"></script>
         <script type="text/javascript" src="js/SentenceView.js"></script>
-        <script type="text/javascript" src="js/AppView.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
     </body>
 
 </html>
