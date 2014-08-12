@@ -1,0 +1,16 @@
+.quote {
+    border: 4px solid black;
+    margin: 5px;
+    width: 700px ;
+    height: 400px;
+    padding: 10px;
+    text-align: center;
+    margin-left: 360px ;
+}
+.quote span{
+    font-size: 56pt;
+}
+.right, .wrong{
+    width: 150px;
+    height: 100px;
+}
