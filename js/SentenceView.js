@@ -21,14 +21,25 @@ define([
         },
 
         _correct: function(model) {
-
+            if (!this.model) {
+                this._disableButtons();
+                return;
+            }
             this.model.set('correct', true);
         },
 
         _incorrect: function(model) {
-
+            if (!this.model) {
+                this._disableButtons();
+                return;
+            }
             this.model.set('correct', false);
             this.collection.trigger('change', this.model);
+        },
+
+        _disableButtons: function() {
+            this.$('.right').attr("disabled", true);
+            this.$('.wrong').attr("disabled", true);
         },
 
         _nextQuestion: function(model) {
