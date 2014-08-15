@@ -5,7 +5,8 @@
     <head>
         <title></title>
         <link href="bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet">
-        <link href="css/cssStyle.css" type="text/css" rel="stylesheet">
+        <link href="css/style.less" type="text/css" rel="stylesheet/less">
+       <!-- <link href="css/cssStyle.css" type="text/css" rel="stylesheet">-->
 
     </head>
 
@@ -30,9 +31,11 @@
             <h4>Total amount<%=totalAmount%></h4>
 
         </script>
-        <script type="text/javascript" src="js/jQuery.js"></script>
-        <script type="text/javascript" src="js/underscore.js"></script>
-        <script type="text/javascript" src="js/backbone.js"></script>
+        <script data-main="/js/app" src="/js/frameworks/require.js"></script>
+        <script type="text/javascript" src="js/frameworks/less.js"></script>
+        <script type="text/javascript" src="js/frameworks/jQuery.js"></script>
+        <script type="text/javascript" src="js/frameworks/underscore.js"></script>
+        <script type="text/javascript" src="js/frameworks/backbone.js"></script>
         <script type="text/javascript" src="js/SentenceModel.js"></script>
         <script type="text/javascript" src="js/SentenceModelCollection.js"></script>
         <script type="text/javascript" src="js/SentenceView.js"></script>

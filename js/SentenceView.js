@@ -15,20 +15,14 @@ var SentenceView = Backbone.View.extend ({
         this.collection.off().on('change', $.proxy(this._nextQuestion, this));
     },
 
-    _correct: function() {
-        if (!this.model) {
-            this._endQuiz();
-            return;
-        }
-        this.model.set('check', true);
+    _correct: function(model) {
+
+        this.model.set('correct', true);
     },
 
-    _incorrect: function() {
-        if (!this.model) {
-            this._endQuiz();
-            return;
-        }
-        this.model.set('check', false);
+    _incorrect: function(model) {
+
+        this.model.set('correct', false);
         this.collection.trigger('change', this.model);
     },
 
@@ -36,7 +30,7 @@ var SentenceView = Backbone.View.extend ({
         var index = this.collection.indexOf(model);
         this.model = this.collection.at(index + 1);
 
-        if (!this.model) {
+        if (this.collection.indexOf(model) == 10) {
             this._endQuiz();
             return;
         }
@@ -44,7 +38,7 @@ var SentenceView = Backbone.View.extend ({
     },
 
     _endQuiz: function() {
-        alert('End quiz!');
+        alert('End of quiz!');
     },
     //public methods
     render: function() {
@@ -52,8 +46,8 @@ var SentenceView = Backbone.View.extend ({
         this.$el.html(this.template({
             question: this.model.toJSON(),
             rightAmount: rightAmount,
-            wrongAmount: this.collection.models.length - rightAmount,
-            totalAmount: this.collection.models.length
+            wrongAmount: this.collection.models.length - 1 - rightAmount,
+            totalAmount: this.collection.models.length - 1
         }));
         this.content.html(this.$el);
         this._attachEvents();
