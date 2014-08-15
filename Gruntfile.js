@@ -32,16 +32,28 @@ module.exports = function(grunt) {
                     dest: 'images/build/'
                 }]
             }
+        },
+        less:{
+            compile: {
+                options: {
+                    //paths: ['test/fixtures/include']
+                },
+                files: {
+                    'css/style.css': 'less/style.less'
+                    //'tmp/less.css': ['test/fixtures/style.less'],
+                   // 'tmp/concat.css': ['test/fixtures/style.less', 'test/fixtures/style2.less', 'test/fixtures/style3.less']
+                }
+            }
         }
-
     });
 
     // Here we say Grunt, that we want to use this plagin
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-less');
 
     // Here are tasks we want Grunt to do
-    grunt.registerTask('default', ['concat', 'uglify','imagemin']);
+    grunt.registerTask('default', ['imagemin','less', 'uglify','concat']);
 
 };
